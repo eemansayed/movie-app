@@ -15,3 +15,8 @@ async function getMovies(url) {
   const res = await fetch(url);
   const data = await res.json();
 }
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const searchTerm = search;
+});
