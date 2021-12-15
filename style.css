@@ -64,3 +64,8 @@ width: 100%;
   color: #eee;
   display: flex;
 }
+
+.movie-info h3 {
+margin: 0;
+}
+
