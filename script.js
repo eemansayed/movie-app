@@ -3,7 +3,7 @@ const API_URL =
 
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
-const SEARCH_URL =
+const SEARCH_API =
   'https://api.themoviedb.org/3/search/movie?api_key=0f0b8886571ef98e04b482be12a224d4&query"';
 
 const form = document.getElementById("form");
@@ -19,5 +19,13 @@ async function getMovies(url) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const searchTerm = search;
+  const searchTerm = search.value;
+
+  if (searchTerm && searchTerm !== "") {
+    getMovies(SEARCH_API + searchTerm);
+
+    search.value = "";
+  } else {
+    window.location.reload();
+  }
 });
