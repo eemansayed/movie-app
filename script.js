@@ -4,7 +4,7 @@ const API_URL =
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
 const SEARCH_API =
-  'https://api.themoviedb.org/3/search/movie?api_key=0f0b8886571ef98e04b482be12a224d4&query"';
+  "https://api.themoviedb.org/3/search/movie?api_key=0f0b8886571ef98e04b482be12a224d4&query=";
 
 const main = document.getElementById("main");
 const form = document.getElementById("form");
@@ -30,19 +30,18 @@ function showMovies(movies) {
     movieEl.classList.add("movie");
 
     movieEl.innerHTML = `
-<div class="movie">
   <img src="${IMG_PATH + poster_path}" alt="${title}">
   <div class="movie-info">
 <h3>${title}</h3>
-<span class="green">${vote_average}</span>
+<span class="${getClassByRate(vote_average)}">${vote_average}</span>
   </div>
   <div class="overview">
 <h3>Overview</h3>
-Dolor eius eveniet minima cupiditate magnam? Error ex blanditiis suscipit repellat soluta hic omnis. Eligendi magni recusandae mollitia fuga quo.
+${overview}
   </div>
-</div>
 
     `;
+    main.appendChild(movieEl);
   });
 }
 
@@ -59,7 +58,6 @@ function getClassByRate(vote) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchTerm = search.value;
-
   if (searchTerm && searchTerm !== "") {
     getMovies(SEARCH_API + searchTerm);
 
