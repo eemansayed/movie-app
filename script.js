@@ -19,6 +19,10 @@ async function getMovies(url) {
   showMovies(data.results);
 }
 
+function showMovies(movies) {
+  main.innerHTML = "";
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchTerm = search.value;
