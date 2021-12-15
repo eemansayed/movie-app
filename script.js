@@ -6,6 +6,7 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API =
   'https://api.themoviedb.org/3/search/movie?api_key=0f0b8886571ef98e04b482be12a224d4&query"';
 
+const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
@@ -21,6 +22,28 @@ async function getMovies(url) {
 
 function showMovies(movies) {
   main.innerHTML = "";
+
+  movies.forEach((movie) => {
+    const { title, poster_path, vote_average, overview } = movie;
+
+    const movieEl = document.createElement("div");
+    movieEl.classList.add("movie");
+
+    movieEl.innerHTML = `
+<div class="movie">
+  <img src="${IMG_PATH + poster_path}" alt="${title}">
+  <div class="movie-info">
+<h3>${title}</h3>
+<span class="green">${vote_average}</span>
+  </div>
+  <div class="overview">
+<h3>Overview</h3>
+Dolor eius eveniet minima cupiditate magnam? Error ex blanditiis suscipit repellat soluta hic omnis. Eligendi magni recusandae mollitia fuga quo.
+  </div>
+</div>
+
+    `;
+  });
 }
 
 form.addEventListener("submit", (e) => {
