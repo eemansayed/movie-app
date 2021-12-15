@@ -6,6 +6,8 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_URL =
   'https://api.themoviedb.org/3/search/movie?api_key=0f0b8886571ef98e04b482be12a224d4&query"';
 
+const form = document.getElementById("form");
+
 // Get inital Movies
 getMovies(API_URL);
 
