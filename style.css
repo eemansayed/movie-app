@@ -45,3 +45,7 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+
+.movie img {
+width: 100%;
+}
