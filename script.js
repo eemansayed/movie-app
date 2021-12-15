@@ -46,6 +46,16 @@ Dolor eius eveniet minima cupiditate magnam? Error ex blanditiis suscipit repell
   });
 }
 
+function getClassByRate(vote) {
+  if (vote >= 8) {
+    return "green";
+  } else if (vote >= 5) {
+    return "orange";
+  } else {
+    return "red";
+  }
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchTerm = search.value;
